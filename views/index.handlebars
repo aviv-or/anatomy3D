@@ -17,12 +17,20 @@
         </div>
       </div>
 
-      <div id="mandiblecircle" style="display: none;" class="redcircle"></div>
+      <div id="mandiblecircle" style="display: none;" class="circle"></div>
       <div id="mandibleinfo" style="display: none;" class="displaybox">
 <p>The mandible, or lower jaw, is the bone that forms the lower part of the skull, and along with the maxilla (upper jaw), forms the mouth structure. Movement of the lower jaw opens and closes the mouth and also allows for the chewing of food. The lower set of teeth in the mouth is rooted in the lower jaw.</p>
 <button id="skullReset" type="button" name="button">Reset Skull</button>
       </div>
-      <div id="line" style="display: none;" class="shape">
+      <div id="mandibleline" style="display: none;" class="mshape">
+      </div>
+
+      <div id="temporalcircle" style="display: none;" class="circle"></div>
+      <div id="temporalinfo" style="display: none;" class="displaybox">
+<p>Temporal bone: A large irregular bone that is situated at the base and side of the skull. The temporal bone is connected with the mandible (the jawbone) via the temporomandibular joint.</p>
+<button id="skullReset" type="button" name="button">Reset Skull</button>
+      </div>
+      <div id="temporalline" style="display: none;" class="tshape">
       </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
@@ -36,10 +44,20 @@
         <script>
 
         document.getElementById('mandible').addEventListener('click', function(){
-          skullPosition({ x: skull.rotation.x, y: 2.2, z: 3 });
+          var x = document.getElementById('mandiblecircle');
+          var y = document.getElementById('mandibleinfo');
+          var z = document.getElementById('mandibleline');
+          skullPosition({ x: skull.rotation.x, y: 2.2, z: 3 }, x, y, z);
+        });
+
+        document.getElementById('temporal').addEventListener('click', function(){
+          var x = document.getElementById('temporalcircle');
+          var y = document.getElementById('temporalinfo');
+          var z = document.getElementById('temporalline');
+          skullPosition({ x: skull.rotation.x, y: skull.rotation.y - 1.3, z: 2 }, x, y, z);
         });
         document.getElementById('reset').addEventListener('click', function(){
-          reset();
+          location.reload();
         });
         document.getElementById('skullReset').addEventListener('click', function(){
           skullReset();

@@ -80,7 +80,7 @@ function render() {
 var reset;
 var targetreset;
 
-function skullPosition(target) {
+function skullPosition(target, x, y, z) {
   var position = {
     x: skull.rotation.x,
     y: skull.rotation.y,
@@ -106,9 +106,6 @@ function skullPosition(target) {
   });
 
   tween.onComplete(function() {
-    var x = document.getElementById('mandiblecircle');
-    var y = document.getElementById('mandibleinfo');
-    var z = document.getElementById('line');
     if (
       x.style.display === 'none' &&
       y.style.display === 'none' &&
@@ -126,11 +123,8 @@ function skullPosition(target) {
   tween.start();
 }
 
-function skullReset() {
+function skullReset(x, y, z) {
   // var target = { x: skull.rotation.x, y: 2.2, z: 3 };
-  var x = document.getElementById('mandiblecircle');
-  var y = document.getElementById('mandibleinfo');
-  var z = document.getElementById('line');
   if (
     x.style.display === 'block' &&
     y.style.display === 'block' &&
@@ -155,8 +149,4 @@ function skullReset() {
   });
 
   tween.start();
-}
-
-function reset() {
-  location.reload();
 }
