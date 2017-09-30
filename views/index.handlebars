@@ -18,47 +18,48 @@
     </div>
   </div>
 
-<div data-id="1" class="hide">
-  <div id="mandiblecircle" style="display: none;" class="circle"></div>
-  <div id="mandibleinfo" style="display: none;" class="displaybox">
-    <p>The mandible, or lower jaw, is the bone that forms the lower part of the skull, and along with the maxilla (upper jaw), forms the mouth structure. Movement of the lower jaw opens and closes the mouth and also allows for the chewing of food. The lower
-      set of teeth in the mouth is rooted in the lower jaw.</p>
-    <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('mandible')">Reset Skull</button>
-  </div>
-  <div id="mandibleline" style="display: none;" class="mshape">
-  </div>
-</div>
-
-<div data-id="2" class="hide">
-  <div id="temporalcircle" style="display: none;" class="circle"></div>
-  <div id="temporalinfo" style="display: none;" class="displaybox">
-    <p>Image result for temporal skull anatomy
-The temporal bone is a large, bilaterally symmetrical bone which forms the base of the cranial vault (along with the occipital bone) and ascends to participate in the lateral walls of the skull. It is divided into four parts: the squamous part, the tympanic part, the styloid process and the petrous part.</p>
-    <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('temporal')">Reset Skull</button>
-  </div>
-  <div id="temporalline" style="display: none;" class="tshape">
-  </div>
+  <div data-id="1" class="hide">
+    <div id="mandiblecircle" style="display: none;" class="circle"></div>
+    <div id="mandibleinfo" style="display: none;" class="displaybox">
+      <p>The mandible, or lower jaw, is the bone that forms the lower part of the skull, and along with the maxilla (upper jaw), forms the mouth structure. Movement of the lower jaw opens and closes the mouth and also allows for the chewing of food. The
+        lower set of teeth in the mouth is rooted in the lower jaw.</p>
+      <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('mandible')">Reset Skull</button>
+    </div>
+    <div id="mandibleline" style="display: none;" class="mshape">
+    </div>
   </div>
 
+  <div data-id="2" class="hide">
+    <div id="temporalcircle" style="display: none;" class="circle"></div>
+    <div id="temporalinfo" style="display: none;" class="displaybox">
+      <p>Image result for temporal skull anatomy The temporal bone is a large, bilaterally symmetrical bone which forms the base of the cranial vault (along with the occipital bone) and ascends to participate in the lateral walls of the skull. It is divided
+        into four parts: the squamous part, the tympanic part, the styloid process and the petrous part.</p>
+      <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('temporal')">Reset Skull</button>
+    </div>
+    <div id="temporalline" style="display: none;" class="tshape">
+    </div>
+  </div>
 
-<div data-id="3" class="hide">
-  <div id="maxillacircle" style="display: none;" class="circle"></div>
-  <div id="maxillainfo" style="display: none;" class="displaybox">
-    <p>The maxilla has several roles. It houses the teeth, forms the roof of the oral cavity, forms the floor of and contributes to the lateral wall and roof of the nasal cavity, houses the maxillary sinus, and contributes to the inferior rim and floor of the orbit. Two maxillary bones are joined in the midline to form the middle third of the face. </p>
-    <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('maxilla')">Reset Skull</button>
-  </div>
-  <div id="maxillaline" style="display: none;" class="mashape">
-  </div>
+
+  <div data-id="3" class="hide">
+    <div id="maxillacircle" style="display: none;" class="circle"></div>
+    <div id="maxillainfo" style="display: none;" class="displaybox">
+      <p>The maxilla has several roles. It houses the teeth, forms the roof of the oral cavity, forms the floor of and contributes to the lateral wall and roof of the nasal cavity, houses the maxillary sinus, and contributes to the inferior rim and floor
+        of the orbit. Two maxillary bones are joined in the midline to form the middle third of the face. </p>
+      <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('maxilla')">Reset Skull</button>
+    </div>
+    <div id="maxillaline" style="display: none;" class="mashape">
+    </div>
   </div>
 
-<div data-id="4" class="hide">
-  <div id="palatinecircle" style="display: none;" class="circle"></div>
-  <div id="palatineinfo" style="display: none;" class="displaybox">
-    <p>Palatine: A bone behind the maxilla which enters into the formation of the hard palate (hence, the name "palatine"), the nasal cavity, and the floor of the orbit.</p>
-    <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('palatine')">Reset Skull</button>
-  </div>
-  <div id="palatineline" style="display: none;" class="pshape">
-  </div>
+  <div data-id="4" class="hide">
+    <div id="palatinecircle" style="display: none;" class="circle"></div>
+    <div id="palatineinfo" style="display: none;" class="displaybox">
+      <p>Palatine: A bone behind the maxilla which enters into the formation of the hard palate (hence, the name "palatine"), the nasal cavity, and the floor of the orbit.</p>
+      <button class="resetbtn" id="skullReset" type="button" name="button" onclick="skullReset('palatine')">Reset Skull</button>
+    </div>
+    <div id="palatineline" style="display: none;" class="pshape">
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
@@ -72,7 +73,6 @@ The temporal bone is a large, bilaterally symmetrical bone which forms the base 
   <script src="js/STLLoader.js"></script>
   <script src="js/app.js"></script>
   <script>
-
     document.getElementById('mandible').addEventListener('click', function() {
       var x = document.getElementById('mandiblecircle');
       var y = document.getElementById('mandibleinfo');
@@ -124,16 +124,16 @@ The temporal bone is a large, bilaterally symmetrical bone which forms the base 
 
     document.getElementsByTagName("canvas")[0].setAttribute("id", "canvas");
 
-    window.onload = function() {
-      var popup = document.getElementsByClassName('hide');
-      document.onmousedown = function(e) {
-        if (e.target.id == 'canvas') {
-          for(var i = 0; i < popup.length; i++){
-            popup[i].style.display = 'none';
-          }
-        }
-      };
-    };
+    // window.onload = function() {
+    //   var popup = document.getElementsByClassName('hide');
+    //   document.onmousedown = function(e) {
+    //     if (e.target.id == 'canvas') {
+    //       for(var i = 0; i < popup.length; i++){
+    //         popup[i].style.display = 'none';
+    //       }
+    //     }
+    //   };
+    // };
 
     if (annyang) {
       // Let's define our first command. First the text we expect, and then the function it should call
@@ -152,31 +152,86 @@ The temporal bone is a large, bilaterally symmetrical bone which forms the base 
         'reset mandible': function() {
           skullReset('mandible');
         },
-        'are you ready to study': function () {
+        'show me the temporal': function() {
+          var x = document.getElementById('temporalcircle');
+          var y = document.getElementById('temporalinfo');
+          var z = document.getElementById('temporalline');
+          skullPosition({
+            x: skull.rotation.x,
+            y: skull.rotation.y - 1.3,
+            z: 2
+          }, x, y, z);
+        },
+        'reset temporal': function() {
+          skullReset('temporal');
+        },
+        'show me the maxilla': function() {
+          var x = document.getElementById('maxillacircle');
+          var y = document.getElementById('maxillainfo');
+          var z = document.getElementById('maxillaline');
+          skullPosition({
+            x: skull.rotation.x,
+            y: skull.rotation.y - 0.3,
+            z: 2
+          }, x, y, z);
+        },
+        'reset maxilla': function() {
+          skullReset('maxilla');
+        },
+        'show me the palatine': function() {
+          var x = document.getElementById('palatinecircle');
+          var y = document.getElementById('palatineinfo');
+          var z = document.getElementById('palatineline');
+          skullPosition({
+            x: skull.rotation.x - 1.5,
+            y: skull.rotation.y,
+            z: 2
+          }, x, y, z);
+        },
+        'reset palatine': function() {
+          skullReset('palatine');
+        },
+        'are you ready to study': function() {
           responsiveVoice.speak("no thanks!");
-          var position = {y:3.141592653589793};
-          var target = {y:0};
+          var position = {
+            y: 3.141592653589793,
+            z: -0
+          };
+          var target = {
+            y: 0,
+            z: -150
+          };
           var tween = new TWEEN.Tween(position).to(target, 1000);
 
           tween.onUpdate(function() {
             skull.rotation.y = position.y;
+            skull.position.z = position.z;
           });
 
           tween.start();
-          setTimeout(function () {
-            var position = {y:3.141592653589793};
-            var target = {y:0};
+          setTimeout(function() {
+            var position = {
+              y: 3.141592653589793,
+              z: -0
+            };
+            var target = {
+              y: 0,
+              z: -150
+            };
             responsiveVoice.speak("just kidding lets study!");
             var tween = new TWEEN.Tween(target).to(position, 1000);
 
             tween.onUpdate(function() {
               skull.rotation.y = target.y;
+              skull.position.z = target.z;
             });
 
             tween.start();
 
           }, 2500);
-
+        },
+        'reset scene':function () {
+          resetcanvas();
         }
       };
 
