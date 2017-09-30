@@ -111,8 +111,8 @@ function skullPosition(target, x, y, z) {
   tween.start();
 }
 
-function skullReset(bone) {
-  // var target = { x: skull.rotation.x, y: 2.2, z: 3 };
+function closeBonePanel(bone){
+  console.log("CLOSE ", bone)
   var x = document.getElementById(bone + 'circle');
   var y = document.getElementById(bone + 'info');
   var z = document.getElementById(bone + 'line');
@@ -125,6 +125,11 @@ function skullReset(bone) {
     y.style.display = 'none';
     z.style.display = 'none';
   }
+}
+
+function skullReset(bone) {
+  closeBonePanel(bone);
+  // var target = { x: skull.rotation.x, y: 2.2, z: 3 };
   var position = targetreset;
   var target = reset;
 
@@ -145,6 +150,9 @@ function skullReset(bone) {
 function resetcanvas() {
   var oldcanv = document.getElementsByTagName('canvas');
   oldcanv[0].remove();
-
+  closeBonePanel('mandible');
+  closeBonePanel('temporal');
+  closeBonePanel('maxilla');
+  closeBonePanel('palatine');
   init();
 }
