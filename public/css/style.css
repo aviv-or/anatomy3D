@@ -83,6 +83,18 @@ li {
   border: solid 4px blue;
 }
 
+#maxillacircle {
+  top: 52%;
+  left: 52%;
+  border: solid 4px orange;
+}
+
+#palatinecircle {
+  top: 53%;
+  left: 49%;
+  border: solid 4px violet;
+}
+
 .displaybox {
   position: absolute;
   border-radius: 2%;
@@ -104,6 +116,18 @@ li {
   top: 1%;
   left: 75%;
   background-color: blue;
+}
+
+#maxillainfo {
+  top: 1%;
+  left: 75%;
+  background-color: orange;
+}
+
+#palatineinfo {
+  top: 1%;
+  left: 75%;
+  background-color: violet;
 }
 
 p {
@@ -136,4 +160,34 @@ p {
   border-bottom: 4px solid blue;
   border-right: 4px solid blue;
   transform: skew(-45deg);
+}
+
+.mashape {
+  position: absolute;
+  z-index: 999;
+  top: 47%;
+  left: 56%;
+  height: 49px;
+  width: 250px;
+  border-bottom: 4px solid orange;
+  border-right: 4px solid orange;
+  transform: skew(-45deg);
+}
+
+.pshape {
+  position: absolute;
+  z-index: 999;
+  top: 47%;
+  left: 53%;
+  height: 49px;
+  width: 300px;
+  border-bottom: 4px solid violet;
+  border-right: 4px solid violet;
+  transform: skew(-45deg);
+}
+
+.resetbtn {
+  position: absolute;
+  top: 88%;
+  left: 71%;
 }

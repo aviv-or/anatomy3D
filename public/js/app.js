@@ -59,8 +59,8 @@ loader.load('models/skull.json', function(object) {
   scene.add(skull);
 });
 
-var axisHelper = new THREE.AxisHelper(5);
-scene.add(axisHelper);
+// var axisHelper = new THREE.AxisHelper(5);
+// scene.add(axisHelper);
 
 //camera position
 camera.position.z = 10;
@@ -97,7 +97,7 @@ function skullPosition(target, x, y, z) {
   console.log(target);
   // var target = { x: skull.rotation.x, y: 2.2, z: 3 };
 
-  var tween = new TWEEN.Tween(position).to(target, 2000);
+  var tween = new TWEEN.Tween(position).to(target, 1500);
 
   tween.onUpdate(function() {
     skull.rotation.x = position.x;
