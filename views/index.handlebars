@@ -5,16 +5,28 @@
     </head>
 
     <body>
-      <button id="btntest">CLICK This one</button>
+      <!-- SIDE TAB -->
+      <div class="left_nav">
+        <h1>ANATO.ME</h1>
+        <div class="parts">
+            <li><button id="btntest" type="button" name="Frontal">Frontal Bone</button></li>
+            <li><button id="btntest" type="button" name="Temporal">Temporal Bone</button></li>
+            <li><button id="btntest" type="button" name="Maxillary">Maxillary Bone</button></li>
+            <li><button id="btntest" type="button" name="Zygomatic">Palatine Bone</button></li>
+        </div>
+      </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
         <script src="js/three.js"></script>
         <script src="js/OrbitControls.js"></script>
         <script src="js/ObjectLoader.js"></script>
         <script src="js/app.js"></script>
         <script>
+
         document.getElementById('btntest').addEventListener('click', function(){
           skullPosition({ x: skull.rotation.x, y: 2.2, z: 3 });
         });
+
         </script>
     </body>
 

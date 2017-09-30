@@ -8,9 +8,50 @@ canvas {
   height: 100%;
 }
 
-button {
+.left_nav{
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   position: absolute;
   top: 0%;
+  bottom: 0%;
   left: 0%;
+  right: 80%;
+  background: #cb2d3e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   z-index: 9999;
+  opacity: .9;
+}
+
+.left_nav h1{
+  padding-top: 20px;
+  padding-bottom: 50px;
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+  font-weight: 100;
+
+}
+
+li{
+  list-style: none;
+}
+
+.parts li button{
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(115,115,115,1);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(115,115,115,1);
+  box-shadow: 0px 4px 5px 0px rgba(115,115,115,1);
+  margin: 0 auto;
+  margin-bottom: 20%;
+  display: block;
+  height: 50px;
+  width: 120px;
+  border-radius: 50px;
+  border-style: none;;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+
 }
