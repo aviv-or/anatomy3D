@@ -28,20 +28,60 @@ window.addEventListener('resize', function() {
   camera.updateProjectionMatrix();
 });
 
+// var light = new THREE.AmbientLight(0x404040); // soft white light
+// scene.add(light);
+
 //controls (ORBIT CONTROL)
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-var loader = new THREE.ObjectLoader();
-var skull;
+// load a resource
+// var mtlLoader = new THREE.MTLLoader();
+// mtlLoader.setPath('models/');
+// mtlLoader.load('beaver-best-exported.mtl', function(materials) {
+//   materials.preload();
+//   var objLoader = new THREE.OBJLoader();
+//   objLoader.setMaterials(materials);
+//   objLoader.setPath('models/');
+//   objLoader.load('beaver-best-exported.obj', function(object) {
+//     scene.add(object);
+//   });
+// });
 
-loader.load('models/skull.json', function(object) {
-  skull = object;
-  skull.rotation.x = 20 * Math.PI / 180;
-  skull.rotation.y = 180 * Math.PI / 180;
-  skull.position.y = -2;
-
-  scene.add(skull);
+var material = new THREE.MeshPhongMaterial({
+  color: 0xaaaaaa,
+  specular: 0x111111,
+  shininess: 200
 });
+
+var loader = new THREE.STLLoader();
+loader.load('models/SkullRef_01.stl', function(geometry) {
+  var meshMaterial = material;
+  if (geometry.hasColors) {
+    meshMaterial = new THREE.MeshPhongMaterial({
+      opacity: geometry.alpha,
+      vertexColors: THREE.VertexColors
+    });
+  }
+  var mesh = new THREE.Mesh(geometry, meshMaterial);
+  mesh.position.set(0.5, 0.2, 0);
+  mesh.rotation.set(-Math.PI / 2, Math.PI / 2, 0);
+  mesh.scale.set(0.3, 0.3, 0.3);
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  scene.add(mesh);
+});
+
+// var loader = new THREE.ObjectLoader();
+// var skull;
+//
+// loader.load('models/skull.json', function(object) {
+//   skull = object;
+//   skull.rotation.x = 20 * Math.PI / 180;
+//   skull.rotation.y = 180 * Math.PI / 180;
+//   skull.position.y = -2;
+//
+//   scene.add(skull);
+// });
 
 var axisHelper = new THREE.AxisHelper(5);
 scene.add(axisHelper);
@@ -78,7 +118,13 @@ function skullPosition(target) {
   });
 
   tween.onComplete(function() {
-    alert('done!');
+    // alert('done!');
+    var x = document.getElementById('redcircle');
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
   });
   tween.start();
 }
