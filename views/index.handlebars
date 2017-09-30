@@ -62,6 +62,8 @@ The temporal bone is a large, bilaterally symmetrical bone which forms the base 
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+  <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
   <script src="js/three.js"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/ObjectLoader.js"></script>
@@ -70,6 +72,7 @@ The temporal bone is a large, bilaterally symmetrical bone which forms the base 
   <script src="js/STLLoader.js"></script>
   <script src="js/app.js"></script>
   <script>
+
     document.getElementById('mandible').addEventListener('click', function() {
       var x = document.getElementById('mandiblecircle');
       var y = document.getElementById('mandibleinfo');
@@ -80,6 +83,7 @@ The temporal bone is a large, bilaterally symmetrical bone which forms the base 
         z: 3
       }, x, y, z);
     });
+
 
     document.getElementById('temporal').addEventListener('click', function() {
       var x = document.getElementById('temporalcircle');
@@ -130,7 +134,60 @@ The temporal bone is a large, bilaterally symmetrical bone which forms the base 
         }
       };
     };
+
+    if (annyang) {
+      // Let's define our first command. First the text we expect, and then the function it should call
+      var commands = {
+        'show me the mandible': function() {
+          console.log('mandible')
+          var x = document.getElementById('mandiblecircle');
+          var y = document.getElementById('mandibleinfo');
+          var z = document.getElementById('mandibleline');
+          skullPosition({
+            x: skull.rotation.x,
+            y: 2.2,
+            z: 3
+          }, x, y, z);
+        },
+        'reset mandible': function() {
+          skullReset('mandible');
+        },
+        'are you ready to study': function () {
+          responsiveVoice.speak("no thanks!");
+          var position = {y:3.141592653589793};
+          var target = {y:0};
+          var tween = new TWEEN.Tween(position).to(target, 1000);
+
+          tween.onUpdate(function() {
+            skull.rotation.y = position.y;
+          });
+
+          tween.start();
+          setTimeout(function () {
+            var position = {y:3.141592653589793};
+            var target = {y:0};
+            responsiveVoice.speak("just kidding lets study!");
+            var tween = new TWEEN.Tween(target).to(position, 1000);
+
+            tween.onUpdate(function() {
+              skull.rotation.y = target.y;
+            });
+
+            tween.start();
+
+          }, 2500);
+
+        }
+      };
+
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening. You can call this here, or attach this call to an event, button, etc.
+      annyang.start();
+    }
   </script>
+
 </body>
 
 </html>
