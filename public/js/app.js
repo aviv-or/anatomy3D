@@ -123,8 +123,11 @@ function skullPosition(target, x, y, z) {
   tween.start();
 }
 
-function skullReset(x, y, z) {
+function skullReset(bone) {
   // var target = { x: skull.rotation.x, y: 2.2, z: 3 };
+  var x = document.getElementById(bone+'circle');
+  var y = document.getElementById(bone+'info');
+  var z = document.getElementById(bone+'line');
   if (
     x.style.display === 'block' &&
     y.style.display === 'block' &&
@@ -140,7 +143,7 @@ function skullReset(x, y, z) {
   console.log(position);
   console.log(target);
 
-  var tween = new TWEEN.Tween(position).to(target, 700);
+  var tween = new TWEEN.Tween(position).to(target, 720);
 
   tween.onUpdate(function() {
     skull.rotation.x = position.x;
