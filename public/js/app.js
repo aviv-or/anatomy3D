@@ -47,41 +47,17 @@ controls = new THREE.OrbitControls(camera, renderer.domElement);
 //   });
 // });
 
-var material = new THREE.MeshPhongMaterial({
-  color: 0xaaaaaa,
-  specular: 0x111111,
-  shininess: 200
-});
+var loader = new THREE.ObjectLoader();
+var skull;
 
-var loader = new THREE.STLLoader();
-loader.load('models/SkullRef_01.stl', function(geometry) {
-  var meshMaterial = material;
-  if (geometry.hasColors) {
-    meshMaterial = new THREE.MeshPhongMaterial({
-      opacity: geometry.alpha,
-      vertexColors: THREE.VertexColors
-    });
-  }
-  var mesh = new THREE.Mesh(geometry, meshMaterial);
-  mesh.position.set(0.5, 0.2, 0);
-  mesh.rotation.set(-Math.PI / 2, Math.PI / 2, 0);
-  mesh.scale.set(0.3, 0.3, 0.3);
-  mesh.castShadow = true;
-  mesh.receiveShadow = true;
-  scene.add(mesh);
-});
+loader.load('models/skull.json', function(object) {
+  skull = object;
+  skull.rotation.x = 20 * Math.PI / 180;
+  skull.rotation.y = 180 * Math.PI / 180;
+  skull.position.y = -2;
 
-// var loader = new THREE.ObjectLoader();
-// var skull;
-//
-// loader.load('models/skull.json', function(object) {
-//   skull = object;
-//   skull.rotation.x = 20 * Math.PI / 180;
-//   skull.rotation.y = 180 * Math.PI / 180;
-//   skull.position.y = -2;
-//
-//   scene.add(skull);
-// });
+  scene.add(skull);
+});
 
 var axisHelper = new THREE.AxisHelper(5);
 scene.add(axisHelper);
@@ -101,12 +77,24 @@ function render() {
   renderer.render(scene, camera);
 }
 
+var reset;
+var targetreset;
+
 function skullPosition(target) {
   var position = {
     x: skull.rotation.x,
     y: skull.rotation.y,
     z: skull.rotation.z
   };
+  reset = {
+    x: skull.rotation.x,
+    y: skull.rotation.y,
+    z: skull.rotation.z
+  };
+  targetreset = target;
+
+  console.log(position);
+  console.log(target);
   // var target = { x: skull.rotation.x, y: 2.2, z: 3 };
 
   var tween = new TWEEN.Tween(position).to(target, 2000);
@@ -118,13 +106,57 @@ function skullPosition(target) {
   });
 
   tween.onComplete(function() {
-    // alert('done!');
-    var x = document.getElementById('redcircle');
-    if (x.style.display === 'none') {
+    var x = document.getElementById('mandiblecircle');
+    var y = document.getElementById('mandibleinfo');
+    var z = document.getElementById('line');
+    if (
+      x.style.display === 'none' &&
+      y.style.display === 'none' &&
+      z.style.display === 'none'
+    ) {
       x.style.display = 'block';
+      y.style.display = 'block';
+      z.style.display = 'block';
     } else {
       x.style.display = 'none';
+      y.style.display = 'none';
+      z.style.display = 'none';
     }
   });
   tween.start();
+}
+
+function skullReset() {
+  // var target = { x: skull.rotation.x, y: 2.2, z: 3 };
+  var x = document.getElementById('mandiblecircle');
+  var y = document.getElementById('mandibleinfo');
+  var z = document.getElementById('line');
+  if (
+    x.style.display === 'block' &&
+    y.style.display === 'block' &&
+    z.style.display === 'block'
+  ) {
+    x.style.display = 'none';
+    y.style.display = 'none';
+    z.style.display = 'none';
+  }
+  var position = targetreset;
+  var target = reset;
+
+  console.log(position);
+  console.log(target);
+
+  var tween = new TWEEN.Tween(position).to(target, 700);
+
+  tween.onUpdate(function() {
+    skull.rotation.x = position.x;
+    skull.rotation.y = position.y;
+    skull.position.z = position.z;
+  });
+
+  tween.start();
+}
+
+function reset() {
+  location.reload();
 }

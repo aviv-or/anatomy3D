@@ -62,7 +62,7 @@ li {
   font-weight: 100;
 }
 
-#redcircle {
+.redcircle {
   position: absolute;
   top: 82%;
   left: 40%;
@@ -70,6 +70,39 @@ li {
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  border: solid 2px red;
+  border: solid 4px #b62c3b;
   /* width and height can be anything, as long as they're equal */
+}
+
+.displaybox {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  border-radius: 2%;
+  z-index: 9999;
+  width: 300px;
+  height: 300px;
+  opacity: 0.7;
+  background-color: #b62c3b;
+  /* width and height can be anything, as long as they're equal */
+}
+
+p {
+  font-family: sans-serif;
+  font-weight: 200;
+  color: #fff;
+  padding: 5%;
+  line-height: 25px;
+}
+
+.shape {
+  position: absolute;
+  z-index: 999;
+  top: 77%;
+  left: 44%;
+  height: 50px;
+  width: 370px;
+  border-bottom: 4px solid #b62c3b;
+  border-right: 4px solid #b62c3b;
+  transform: skew(-45deg);
 }
