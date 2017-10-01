@@ -74,48 +74,61 @@
   <script src="js/app.js"></script>
   <script>
     document.getElementById('mandible').addEventListener('click', function() {
-      var x = document.getElementById('mandiblecircle');
-      var y = document.getElementById('mandibleinfo');
-      var z = document.getElementById('mandibleline');
-      skullPosition({
-        x: skull.rotation.x,
-        y: 2.2,
-        z: 3
-      }, x, y, z);
+      resetcanvas();
+      setTimeout(function() {
+        var x = document.getElementById('mandiblecircle');
+        var y = document.getElementById('mandibleinfo');
+        var z = document.getElementById('mandibleline');
+        skullPosition({
+          x: skull.rotation.x,
+          y: 2.2,
+          z: 3
+        }, x, y, z);
+      }, 280);
     });
 
 
     document.getElementById('temporal').addEventListener('click', function() {
-      var x = document.getElementById('temporalcircle');
-      var y = document.getElementById('temporalinfo');
-      var z = document.getElementById('temporalline');
-      skullPosition({
-        x: skull.rotation.x,
-        y: skull.rotation.y - 1.3,
-        z: 2
-      }, x, y, z);
+      resetcanvas();
+      setTimeout(function() {
+        var x = document.getElementById('temporalcircle');
+        var y = document.getElementById('temporalinfo');
+        var z = document.getElementById('temporalline');
+        skullPosition({
+          x: skull.rotation.x,
+          y: skull.rotation.y - 1.3,
+          z: 2
+        }, x, y, z);
+      }, 280);
     });
 
     document.getElementById('maxilla').addEventListener('click', function() {
-      var x = document.getElementById('maxillacircle');
-      var y = document.getElementById('maxillainfo');
-      var z = document.getElementById('maxillaline');
-      skullPosition({
-        x: skull.rotation.x,
-        y: skull.rotation.y - 0.3,
-        z: 2
-      }, x, y, z);
+      resetcanvas();
+
+      setTimeout(function() {
+        var x = document.getElementById('maxillacircle');
+        var y = document.getElementById('maxillainfo');
+        var z = document.getElementById('maxillaline');
+        skullPosition({
+          x: skull.rotation.x,
+          y: skull.rotation.y - 0.3,
+          z: 2
+        }, x, y, z);
+      }, 280);
     });
 
     document.getElementById('palatine').addEventListener('click', function() {
-      var x = document.getElementById('palatinecircle');
-      var y = document.getElementById('palatineinfo');
-      var z = document.getElementById('palatineline');
-      skullPosition({
-        x: skull.rotation.x - 1.5,
-        y: skull.rotation.y,
-        z: 2
-      }, x, y, z);
+      resetcanvas();
+      setTimeout(function() {
+        var x = document.getElementById('palatinecircle');
+        var y = document.getElementById('palatineinfo');
+        var z = document.getElementById('palatineline');
+        skullPosition({
+          x: skull.rotation.x - 1.5,
+          y: skull.rotation.y,
+          z: 2
+        }, x, y, z);
+      }, 280);
     });
 
     document.getElementById('reset').addEventListener('click', function() {
@@ -139,7 +152,6 @@
       // Let's define our first command. First the text we expect, and then the function it should call
       var commands = {
         'show me the mandible': function() {
-          console.log('mandible')
           var x = document.getElementById('mandiblecircle');
           var y = document.getElementById('mandibleinfo');
           var z = document.getElementById('mandibleline');
@@ -230,7 +242,7 @@
 
           }, 2500);
         },
-        'reset scene':function () {
+        'reset scene': function() {
           resetcanvas();
         }
       };
