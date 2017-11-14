@@ -138,7 +138,7 @@ p {
   line-height: 25px;
 }
 
-.mshape {
+/*.mshape {
   position: absolute;
   z-index: 999;
   top: 77%;
@@ -148,9 +148,9 @@ p {
   border-bottom: 4px solid #b62c3b;
   border-right: 4px solid #b62c3b;
   transform: skew(-45deg);
-}
+}*/
 
-.tshape {
+/*.tshape {
   position: absolute;
   z-index: 999;
   top: 38%;
@@ -172,9 +172,9 @@ p {
   border-bottom: 4px solid orange;
   border-right: 4px solid orange;
   transform: skew(-45deg);
-}
+}*/
 
-.pshape {
+/*.pshape {
   position: absolute;
   z-index: 999;
   top: 47%;
@@ -184,7 +184,7 @@ p {
   border-bottom: 4px solid violet;
   border-right: 4px solid violet;
   transform: skew(-45deg);
-}
+}*/
 
 .resetbtn {
   position: absolute;
